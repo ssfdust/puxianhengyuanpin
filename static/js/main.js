@@ -69,7 +69,7 @@ function success() {
 		document.body.style.height = '100%';
 	} else {
 		document.addEventListener('DOMContentLoaded', function () {
-			document.body.style.height = '100%';
+      document.body.style.height = '100%';
 		});
 	}
 }
