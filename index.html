@@ -26,7 +26,6 @@
       display: none;
     }
     .headline {
-      background-color:#0e141f;
       width: 20%;
       flex: auto;
       text-shadow:0 0 0.191em #ffcb36,
@@ -34,8 +33,12 @@
     }
     p:hover {
       color: #f2bd2f;
+      font-family: "华文楷体";
+      font-style: bold;
       -webkit-animation: Glow 1.5s ease infinite alternate;
       animation: Glow 1.5s ease infinite alternate;
+      text-shadow:0 0 0.191em #ffcb36,
+                  -0 -0 1em #ffcb36;
     }
     @-webkit-keyframes Glow {
       from {
@@ -59,6 +62,7 @@
         0 0 75px #fabd2f;
       }
     }
+
     @keyframes Glow {
       from {
         text-shadow: 0 0 10px #928374,
@@ -83,7 +87,7 @@
     }
     .headline-list {
       width: 60%;
-      background-color:#0e141f;
+      background-color:#d5c4a1;
       color: #fff;
       font-family: "华文楷体";
       font-style: bold;
@@ -93,7 +97,7 @@
     }
     .headline-list1 {
       width: 80%;
-      background-color:#0e141f;
+      background-color:#d5c4a1;
       color: #fff;
       font-family: "华文楷体";
       font-style: bold;
@@ -109,12 +113,18 @@
       background: black;
       border-radius: 8px;
     }
+    .noshow {
+      display: none;
+    }
 
     .reveal {
       margin-left: 80px;
       text-align: center;
       color: #3c3836;
       font-size: 30px;
+    }
+    .title {
+      margin: 0 auto;
     }
 
     /* extension */
@@ -147,37 +157,17 @@
       <source src="static/videos/huayan_title.mp4" type="video/mp4">
       <source src="static/videos/huayan_title.webm" type="video/webm">
     </video>
-    <!-- <ul class="headline-list">
-       -   <li class="headline load-hidden">大</li>
-       -   <li class="headline load-hidden">方</li>
-       -   <li class="headline load-hidden">广</li>
-       -   <li class="headline load-hidden">佛</li>
-       -   <li class="headline load-hidden">华</li>
-       -   <li class="headline load-hidden">严</li>
-       -   <li class="headline load-hidden">经</li>
-       -   <li class="headline load-hidden">卷</li>
-       -   <li class="headline load-hidden">第</li>
-       -   <li class="headline load-hidden">三</li>
-       - </ul>
-       - <ul class="headline-list1">
-       -   <li class="headline load-hidden"> </li>
-       -   <li class="headline load-hidden"> </li>
-       -   <li class="headline load-hidden">入</li>
-       -   <li class="headline load-hidden">不</li>
-       -   <li class="headline load-hidden">思</li>
-       -   <li class="headline load-hidden">议</li>
-       -   <li class="headline load-hidden">解</li>
-       -   <li class="headline load-hidden">脱</li>
-       -   <li class="headline load-hidden">境</li>
-       -   <li class="headline load-hidden">界</li>
-       -   <li class="headline load-hidden">普</li>
-       -   <li class="headline load-hidden">贤</li>
-       -   <li class="headline load-hidden">行</li>
-       -   <li class="headline load-hidden">愿</li>
-       -   <li class="headline load-hidden">品</li>
-       - </ul> -->
-    <h2>狮子频申三昧</h2>
-
+    <ul class="headline-list noshow title">
+       <li class="headline load-hidden">师</li>
+       <li class="headline load-hidden">子</li>
+       <li class="headline load-hidden">频</li>
+       <li class="headline load-hidden">申</li>
+       <li class="headline load-hidden">三</li>
+       <li class="headline load-hidden">昧</li>
+       <li class="headline load-hidden">功</li>
+       <li class="headline load-hidden">徳</li>
+       <li class="headline load-hidden">章</li>
+     </ul>
     <div class='block'>
       <p class="reveal">其诸菩萨。住逝多林。</p>
       <p class="reveal">不离如来道场众会。各各自见。</p>
@@ -328,9 +318,23 @@
       <p class="reveal">于此林中无不见</p>
     </div>
   <script>
-     ScrollReveal().reveal('.headline', { interval: 345 });
-     setTimeout(function(){ScrollReveal({reset: true}).reveal('.reveal', { interval: 400 })}, 8000);
-     setTimeout(function(){$(".vidbacking-active-body-back").css({'opacity': 0});$(".block").css({'display': 'unset'})}, 7000);
+      var nodes = []
+      for (let n of $('.headline')) {
+          nodes.push(n);
+      }
+      for (let n of $('.reveal')) {
+          nodes.push(n);
+      }
+      setTimeout(function(){
+          $('.title').removeClass('noshow');
+          ScrollReveal().reveal(nodes, { interval: 345 });
+      }, 7500);
+     // setTimeout(function(){
+     //     ScrollReveal({reset: false}).reveal('.reveal', { interval: 400 });
+     // }, 7700);
+     setTimeout(function(){
+         $(".vidbacking-active-body-back").css({'opacity': 0});$(".block").css({'display': 'unset'})
+     }, 7000);
   </script>
   <script type="text/javascript" src="static/js/jquery.vidbacking.js"></script>
   <script type="text/javascript">
