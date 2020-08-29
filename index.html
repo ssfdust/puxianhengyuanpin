@@ -316,6 +316,7 @@
       <p class="reveal">于此林中无不见</p>
     </div>
   <script>
+    function start() {
       var nodes = []
       for (let n of $('.headline')) {
           nodes.push(n);
@@ -327,12 +328,11 @@
           $('.title').removeClass('noshow');
           ScrollReveal().reveal(nodes, { interval: 345 });
       }, 7500);
-     // setTimeout(function(){
-     //     ScrollReveal({reset: false}).reveal('.reveal', { interval: 400 });
-     // }, 7700);
      setTimeout(function(){
          $(".vidbacking-active-body-back").css({'opacity': 0});$(".block").css({'display': 'unset'})
      }, 7000);
+   };
+   $(document).ready(start);
   </script>
   <script type="text/javascript" src="static/js/jquery.vidbacking.js"></script>
   <script type="text/javascript">
